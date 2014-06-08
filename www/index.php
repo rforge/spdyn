@@ -47,9 +47,10 @@ echo $contents; } ?>
 
 <p> The <b>spdyn package</b>, currently under development, seeks to implement a set of methods to perform exploratory
  data analysis on space-time data. Currently, it only implements functions to caculate <i>Spatial Markov Matrices</i>
- as proposed by Rey (2001), and a set of related measures, as the mean first passage times and the estimation of the 
- ergodic distribution. Further developments will include the implemantations of statistical tests to asses if the
- Spatial Markvo Matrices really differ from a non-spatially conditioned Markov process, or classic Markov matrix.
+ as suggested by Rey (2001), and a set of related measures, as the mean first passage times and the estimation of the 
+ ergodic distribution of the Markov processes implied by the Spatial Markov Matrices. Further developments will include
+ the implemantation of statistical tests to asses if the Spatial Markov Matrices really differ from a non-spatially 
+ conditioned Markov Matrix, or classic Markov process.
  Also, it will implement other measures of space-time dynamics exposed by Rey (2001) and the dynamic LISA measures 
  proposed by Rey, Murray and Anselin (2011). </p>
 
