@@ -12,7 +12,7 @@ This package implements methdos and measures to analyze longitudinal spatial dat
 \tabular{ll}{
 Package: \tab spdyn\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
+Version: \tab 0.0-1\cr
 Date: \tab 2014-05-28\cr
 License: \tab GPL-3\cr
 }

@@ -29,7 +29,7 @@ The names to be given to the states of the Markov process.
   \item{discretized}{
 Is the data already discretized? (Default: \code{discretized=FALSE}). If the user has a data set which registers a finite
  number of states through time, \code{discretized} should be set as \code{TRUE}. If the data set comprises a continous
- variable, data should be discretized, whereby \discretized should be set as FALSE.
+ variable, data should be discretized, whereby \code{discretized} should be set as FALSE.
 }
   \item{pool}{
 If \code{pool=TRUE}, the data is pooled, so that a unique set of time-invariant breaks is determined. If \code{pool=FALSE}

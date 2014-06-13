@@ -1,4 +1,5 @@
-markov<-function(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,pool=FALSE,std=FALSE){
+markov <-
+function(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,pool=FALSE,std=FALSE){
  x<-data[,stateVars]
  n<-nrow(x)
  t<-ncol(x)
@@ -41,5 +42,6 @@ if(discretized==TRUE){
 	class(mt)<-'matrix'
 	class(mp)<-'matrix'
   z<-list('t'=mt,'p'=mp)
-  z
+  class(z)<-'markov'
+ return(z)
  }

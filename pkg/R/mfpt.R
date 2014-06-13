@@ -1,16 +1,20 @@
-mfpt<-function(P){
- stopifnot(rowSums(P)==1,nrow(P)==ncol(P))
-  n<-nrow(P)
-    ss = steadyState(P)
-    A = matrix(rep(ss,n),n,byrow=FALSE)
-    A = t(A) 
-    I = diag(1,nrow(P))
-    Z = solve(I - P + A)
-    E = matrix(1,nrow(P),ncol(P))
-    D1 = diag(1/diag(A))
-    Zdg = diag(diag(Z))
-    M = (I - Z + E %*% Zdg) %*% D1
-   colnames(M)<-colnames(P)
-   rownames(M)<-rownames(P)
-   return(M)
+mfpt <-
+function(M){
+ if(class(M)=='markov'){
+  stopifnot(rowSums(M$p)==1,nrow(M$p)==ncol(M$p)) 
+    T<-.mfpt(M$p)
+	colnames(T)<-colnames(M$p)
+	rownames(T)<-rownames(M$p)
+	}else{
+  if(class(M)=='spMarkov'){
+  stopifnot(dim(M$p)[1]==dim(M$p)[2],dim(M$p)[2]==dim(M$p)[3])
+   T<-array(0,dim=rep(dim(M$p)[1],3))
+    for(i in 1:dim(M$p)[1]){
+	stopifnot(rowSums(M$p[,,i])==1)
+       T[,,i]<-.mfpt(M$p[,,i])
+	  dimnames(T)[[3]]<-paste('neighbourhood:',dimnames(M$p)[[3]]);dimnames(T)[[2]]<-dimnames(M$p)[[2]];dimnames(T)[[1]]<-dimnames(M$p)[[1]]
+	  }
+	}else{print('wrong class')}	
+    }
+return(T)
   }

@@ -1,10 +1,20 @@
-steadyState<-function(P,tol=1e-10){
- stopifnot(rowSums(P)==1,nrow(P)==ncol(P))
-	S<-eigen(t(P))$vectors
-	D<-diag(eigen(t(P))$values)
-	diag(D)=as.numeric(abs(diag(D)-1)<tol)
-	ss<-S%*%D%*%solve(S)%*%rep(0.2,nrow(P))
-   colnames(ss)<-'Steady State'
-   rownames(ss)<-rownames(P)
-   return(ss)
+steadyState <-
+function(M,tol=1e-10){
+ if(class(M)=='markov'){
+  stopifnot(rowSums(M$p)==1,nrow(M$p)==ncol(M$p)) 
+    E<-as.numeric(.steadyState(M$p,tol=tol))
+	names(E)<-rownames(M$p)
+	}else{
+  if(class(M)=='spMarkov'){
+  stopifnot(dim(M$p)[1]==dim(M$p)[2],dim(M$p)[2]==dim(M$p)[3])
+   E<-matrix(0,dim(M$p)[1],dim(M$p)[1])
+    for(i in 1:dim(M$p)[1]){
+	stopifnot(rowSums(M$p[,,i])==1)
+       E[i,]<-.steadyState(M$p[,,i],tol=tol)
+	colnames(E)<-colnames(m$p)
+	rownames(E)<-paste('nb',rownames(m$p),sep='.')
+	}	
+     }else{print('wrong class')}	
+    }
+return(E)
   }

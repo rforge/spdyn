@@ -1,4 +1,5 @@
-spMarkov<-function(data,listw,stateVars,n.states,stateNames=NULL,style='quantile',
+spMarkov <-
+function(data,listw,stateVars,n.states,stateNames=NULL,style='quantile',
 	breaks,breaks.lag,pool=TRUE,std=TRUE){
  x<-data[,stateVars]
  n<-nrow(x)
@@ -55,7 +56,8 @@ for(i in 1:n.states)mp[,,i]<-mt[,,i]/rowSums(mt[,,i])
   class(mt)<-'array'
   class(mp)<-'array'
 #provideDimnames(mp,base=list(rep(as.character(stateNames),3)))
-dimnames(mp)[[3]]<-stateNames;dimnames(mp)[[2]]<-stateNames;dimnames(mp)[[1]]<-stateNames
+dimnames(mp)[[3]]<-paste('neighbourhood',stateNames);dimnames(mp)[[2]]<-stateNames;dimnames(mp)[[1]]<-stateNames
   z<-list('t'=mt,'p'=mp)
-  z
+  class(z)<-'spMarkov'
+ return(z)
  }
