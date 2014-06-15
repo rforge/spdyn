@@ -33,6 +33,7 @@ if(pool==FALSE){
 	 }
  }else{
 	if(style=='fixed'){
+	 stopifnot(std==FALSE)
 		brks<-breaks
 		brks.ly<-breaks.lag
 		stopifnot(is.numeric(brks)==TRUE)
@@ -53,6 +54,7 @@ mt<-table(x[,c('cut0','cutT','cutL')])+mt
 }
 mp<-array(0,dim=rep(n.states,3))
 for(i in 1:n.states)mp[,,i]<-mt[,,i]/rowSums(mt[,,i])
+ mp[is.na(mp)]<-0
   class(mt)<-'array'
   class(mp)<-'array'
 #provideDimnames(mp,base=list(rep(as.character(stateNames),3)))

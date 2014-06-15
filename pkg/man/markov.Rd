@@ -14,13 +14,13 @@ markov(data, stateVars, n.states, stateNames, discretized = FALSE, pool = FALSE)
 \arguments{
   \item{data}{
 A data frame arranged in such a way that there is one row per observation, and one column
- recording the state of each observation, with as many columns as time periods
+ recording the state of each observation, with as many columns as time periods.
 }
   \item{stateVars}{
-The columns in the data frame wich contain the temporal evolution of the variable of interest (one column per year)
+The columns in the data frame which describe the temporal evolution of the variable of interest (one column per year).
 }
   \item{n.states}{
-The number of states to be assumed for the markov process (equals the number of rows and columns of the estimated
+The number of states to be assumed for the Markov process (equals the number of rows and columns of the estimated
  transition matrix).
 }
   \item{stateNames}{
@@ -40,18 +40,19 @@ If \code{pool=TRUE}, the data is pooled, so that a unique set of time-invariant 
 Should the data be standardized? If \code{std=TRUE}, the data is standardized by each period by the mean. 
 }
 }
-\details{
-If \code{pool=TRUE}, it is recommended to set \code{std=TRUE}.
-}
+
 \value{
-\code{markov} returns a list containing to matrices:
-  \item{t}{A matrix of transition counts
+ An object of class '\code{markov}' containing the following items:
+  \item{t}{A matrix of transition counts.
 }
   \item{p}{A probability matrix. The rows of this matrix sum to one.
 }
 }
 \references{
-Restrepo, Franco and Muñoz (2010) Algebra Lineal con Aplicaciones. Universidad Nacional de Colombia.
+Restrepo, Patricia; Franco, Rosa and Muñoz, Luz (2010). \emph{Álgebra Lineal con Aplicaciones}, Universidad Nacional de Colombia, Medellín.
+}
+\note{
+If \code{pool=TRUE}, it is recommended to set \code{std=TRUE}.
 }
 \author{
 Osmar Leandro Loaiza Quintero
@@ -59,13 +60,17 @@ Osmar Leandro Loaiza Quintero
 
 
 \seealso{
-\code{\link{steadyState}, \link{mfpt}}
+\code{\link{steadyState}, \link{mfpt}, \link{spMarkov}}
 }
 
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+
+data(usinc)
+stateVars<-names(usinc@data[,7:87])
+stateNames<-c('Poor','Lower','Middle','Upper','Rich')
+
+M<-markov(usinc@data, stateVars=,n.states=5,stateNames=stateNames)
+M$t;M$p
 
 }
 

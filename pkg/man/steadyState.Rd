@@ -14,20 +14,24 @@ steadyState(P, tol = 1e-10)
 
 \arguments{
   \item{P}{
-A probability matrix as given by the \link{markov} function.
+An object of class \code{markov} or class \code{spMarkov}.
 }
   \item{tol}{
-A tolerance argument, used in determining the steady state distribution.
+A tolerance argument, used in determining the steady state distribution. By default set to 1e-10.
 }
 }
 \details{
-If necessary, more details than the description above
+The long run behavior of a first order Markov process is governed by the unitary eigenvalues associated with the 
+probability matrix. If an eigenvalue does not equal unity, but is very close to unity, the tolerance argument specifies
+the maximum gap to be tolerated to regard an eigenvalue as equal to unity. Then this eigenvalue will govern the long run
+behavior of the Markov process and, hence, will determine the steady state vector or ergodic distribution. The \code{steadyState}
+function uses the \code{\link[base]{eigen}} function in the \pkg{base} package.
 }
 \value{
 A vector
 }
 \references{
-Restrepo, Franco and Muñoz (2010) Algebra Lineal con Aplicaciones. Universidad Nacional de Colombia.
+Restrepo, Patricia; Franco, Rosa and Muñoz, Luz (2010). \emph{Álgebra Lineal con Aplicaciones}, Universidad Nacional de Colombia, Medellín.
 }
 \author{
 Osmar Leandro Loaiza Quintero
@@ -37,13 +41,24 @@ Osmar Leandro Loaiza Quintero
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{markov}}
+ \code{\link{spMarkov}, \link{markov}, \link{eigen}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
+data(usinc)
+stateVars<-names(usinc@data[,7:87])
+stateNames<-c('Poor','Lower','Middle','Upper','Rich')
+
+##Classic Markov Matrix
+Mc<-markov(usinc@data, stateVars=,n.states=5,stateNames=stateNames)
+steadyState(Mc)
+
+##Spatial Markov Matrix
+#Create a list of spatial weights
+lw<-nb2listw(poly2nb(us,queen=TRUE),style='W')
+
+Msp<-spMarkov(us@data, lw, stateVars=stateVars,n.states=5,stateNames=stateNames,pool=TRUE,std=TRUE)
+steadyState(Msp)
 
 }
 

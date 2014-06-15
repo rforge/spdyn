@@ -11,7 +11,8 @@ mfpt(P)
 }
 
 \arguments{
-  \item{P}{A markov probability matrix, as given by the \code{\link{markov}} function.
+  \item{P}{
+An object of class \code{markov} or class \code{spMarkov}. 
 }
 }
 \details{
@@ -20,19 +21,34 @@ The mean first passage time refers to the time-steps it takes to reach state \eq
 initial state \eqn{Sj}.
 }
 \value{
-A matrix
+If an object of class \code{markov} is provided, it returns a vector. If an object of class \code{spMarkov} is provided, it returns a matrix.
 }
 \references{
-Meyer, Carl (1978) 'An  Alternative  Expression  for  the  Mean  First  Passage  Matrix', Linear Algebra and its Applications,Vol.22,pp.41-47.
+Meyer, Carl (1978). 'An  Alternative  Expression  for  the  Mean  First  Passage  Matrix', \emph{Linear Algebra and its Applications}, Vol.22,pp.41-47.
 }
 \author{
 Osmar Leandro Loaiza Quintero
 }
 
+\seealso{
+ \code{\link{spMarkov},\link{markov}}
+}
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+
+data(usinc)
+stateVars<-names(usinc@data[,7:87])
+stateNames<-c('Poor','Lower','Middle','Upper','Rich')
+
+##Classic Markov Matrix
+Mc<-markov(usinc@data, stateVars=,n.states=5,stateNames=stateNames)
+mfpt(Mc)
+
+##Spatial Markov Matrix
+#Create a list of spatial weights
+lw<-nb2listw(poly2nb(us,queen=TRUE),style='W')
+
+Msp<-spMarkov(us@data, lw, stateVars=stateVars,n.states=5,stateNames=stateNames,pool=TRUE,std=TRUE)
+mfpt(Msp)
 
 }
 
