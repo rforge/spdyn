@@ -1,5 +1,5 @@
-\name{spdyn-package}
-\alias{spdyn-package}
+\name{spdyn}
+\alias{spdyn}
 \alias{spdyn}
 \docType{package}
 \title{

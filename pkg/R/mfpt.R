@@ -12,7 +12,7 @@ function(M){
     for(i in 1:dim(M$p)[1]){
 	stopifnot(rowSums(M$p[,,i])==1)
        T[,,i]<-.mfpt(M$p[,,i])
-	  dimnames(T)[[3]]<-paste('neighbourhood:',dimnames(M$p)[[3]]);dimnames(T)[[2]]<-dimnames(M$p)[[2]];dimnames(T)[[1]]<-dimnames(M$p)[[1]]
+	  dimnames(T)<-list(dimnames(M$p)[[1]],dimnames(M$p)[[2]],dimnames(M$p)[[3]])  
 	  }
 	}else{print('wrong class')}	
     }

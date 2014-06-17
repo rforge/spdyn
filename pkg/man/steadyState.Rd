@@ -28,7 +28,8 @@ behavior of the Markov process and, hence, will determine the steady state vecto
 function uses the \code{\link[base]{eigen}} function in the \pkg{base} package.
 }
 \value{
-A vector
+If an object of class \code{markov} is provided, it returns a vector. If an objecto of class \code{spMarkov} is provided,
+ it returns a matrix.
 }
 \references{
 Restrepo, Patricia; Franco, Rosa and Muñoz, Luz (2010). \emph{Álgebra Lineal con Aplicaciones}, Universidad Nacional de Colombia, Medellín.
@@ -50,7 +51,7 @@ stateVars<-names(usinc@data[,7:87])
 stateNames<-c('Poor','Lower','Middle','Upper','Rich')
 
 ##Classic Markov Matrix
-Mc<-markov(usinc@data, stateVars=,n.states=5,stateNames=stateNames)
+Mc<-markov(usinc@data, stateVars=stateVars,n.states=5,stateNames=stateNames)
 steadyState(Mc)
 
 ##Spatial Markov Matrix

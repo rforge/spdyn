@@ -57,8 +57,8 @@ for(i in 1:n.states)mp[,,i]<-mt[,,i]/rowSums(mt[,,i])
  mp[is.na(mp)]<-0
   class(mt)<-'array'
   class(mp)<-'array'
-#provideDimnames(mp,base=list(rep(as.character(stateNames),3)))
-dimnames(mp)[[3]]<-paste('neighbourhood',stateNames);dimnames(mp)[[2]]<-stateNames;dimnames(mp)[[1]]<-stateNames
+
+dimnames(mp)<-list(stateNames,stateNames,paste('neighbourhood:',stateNames))
   z<-list('t'=mt,'p'=mp)
   class(z)<-'spMarkov'
  return(z)

@@ -40,7 +40,7 @@ stateVars<-names(usinc@data[,7:87])
 stateNames<-c('Poor','Lower','Middle','Upper','Rich')
 
 ##Classic Markov Matrix
-Mc<-markov(usinc@data, stateVars=,n.states=5,stateNames=stateNames)
+Mc<-markov(usinc@data, stateVars=stateVars,n.states=5,stateNames=stateNames)
 mfpt(Mc)
 
 ##Spatial Markov Matrix
