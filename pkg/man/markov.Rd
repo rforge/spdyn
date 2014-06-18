@@ -8,10 +8,11 @@ Classic Markov Probability Matrix
 A function to estimate probability or transition matrices.
 }
 \usage{
-markov(data, stateVars, n.states, stateNames, discretized = FALSE, pool = FALSE)
+markov(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,pool=FALSE,std=FALSE)
 }
 
 \arguments{
+
   \item{data}{
 A data frame arranged in such a way that there is one row per observation, and one column
  recording the state of each observation, with as many columns as time periods.
@@ -39,6 +40,7 @@ If \code{pool=TRUE}, the data is pooled, so that a unique set of time-invariant 
   \item{std}{
 Should the data be standardized? If \code{std=TRUE}, the data is standardized by each period by the mean. 
 }
+
 }
 
 \value{
@@ -49,7 +51,7 @@ Should the data be standardized? If \code{std=TRUE}, the data is standardized by
 }
 }
 \references{
-Restrepo, Patricia; Franco, Rosa and Muñoz, Luz (2010). \emph{Álgebra Lineal con Aplicaciones}, Universidad Nacional de Colombia, Medellín.
+Restrepo, Patricia; Franco, Rosa and Munoz, Luz (2010). \emph{Algebra Lineal con Aplicaciones}, Universidad Nacional de Colombia, Medellin.
 }
 \note{
 If \code{pool=TRUE}, it is recommended to set \code{std=TRUE}.

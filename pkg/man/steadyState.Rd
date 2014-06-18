@@ -9,11 +9,11 @@ A function to estimate the ergodic distribution, or steady state distribution ve
  markov process.
 }
 \usage{
-steadyState(P, tol = 1e-10)
+steadyState(M, tol = 1e-10)
 }
 
 \arguments{
-  \item{P}{
+  \item{M}{
 An object of class \code{markov} or class \code{spMarkov}.
 }
   \item{tol}{
@@ -32,7 +32,7 @@ If an object of class \code{markov} is provided, it returns a vector. If an obje
  it returns a matrix.
 }
 \references{
-Restrepo, Patricia; Franco, Rosa and Muñoz, Luz (2010). \emph{Álgebra Lineal con Aplicaciones}, Universidad Nacional de Colombia, Medellín.
+Restrepo, Patricia; Franco, Rosa and Munoz, Luz (2010). \emph{Algebra Lineal con Aplicaciones}, Universidad Nacional de Colombia, Medellin.
 }
 \author{
 Osmar Leandro Loaiza Quintero
@@ -56,9 +56,9 @@ steadyState(Mc)
 
 ##Spatial Markov Matrix
 #Create a list of spatial weights
-lw<-nb2listw(poly2nb(us,queen=TRUE),style='W')
+lw<-nb2listw(poly2nb(usinc,queen=TRUE),style='W')
 
-Msp<-spMarkov(us@data, lw, stateVars=stateVars,n.states=5,stateNames=stateNames,pool=TRUE,std=TRUE)
+Msp<-spMarkov(usinc@data, lw, stateVars=stateVars,n.states=5,stateNames=stateNames,pool=TRUE,std=TRUE)
 steadyState(Msp)
 
 }

@@ -78,9 +78,9 @@ stateVars<-names(usinc@data[,7:87])
 stateNames<-c('Poor','Lower','Middle','Upper','Rich')
 
 #Create a list of spatial weights
-lw<-nb2listw(poly2nb(us,queen=TRUE),style='W')
+lw<-nb2listw(poly2nb(usinc,queen=TRUE),style='W')
 
-M<-spMarkov(us@data, lw, stateVars=stateVars,n.states=5,stateNames=stateNames,pool=TRUE,std=TRUE)
+M<-spMarkov(usinc@data, lw, stateVars=stateVars,n.states=5,stateNames=stateNames,pool=TRUE,std=TRUE)
 M$t;M$p
 
 }

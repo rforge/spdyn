@@ -1,6 +1,6 @@
 mfpt <-
 function(M){
- if(class(M)=='markov'){
+ if(class(M)=='Markov'){
   stopifnot(rowSums(M$p)==1,nrow(M$p)==ncol(M$p)) 
     T<-.mfpt(M$p)
 	colnames(T)<-colnames(M$p)

@@ -25,7 +25,7 @@ Osmar Leandro Loaiza Quintero
 
 }
 \references{
-Restrepo, Patricia; Franco, Rosa and Muñoz, Luz (2010). \emph{Álgebra Lineal con Aplicaciones}, Universidad Nacional de Colombia, Medellín.
+Restrepo, Patricia; Franco, Rosa and Munoz, Luz (2010). \emph{Algebra Lineal con Aplicaciones}, Universidad Nacional de Colombia, Medellin.
 
 Rey, Sergio (2001). 'Spatial Empirics for Economic Growth and Convergence', \emph{Geographical Analysis}, Vol.33, No.3.
 }

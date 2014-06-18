@@ -7,11 +7,11 @@
 Computes mean first passage times among states for a first order Markov process.
 }
 \usage{
-mfpt(P)
+mfpt(M)
 }
 
 \arguments{
-  \item{P}{
+  \item{M}{
 An object of class \code{markov} or class \code{spMarkov}. 
 }
 }
@@ -45,9 +45,9 @@ mfpt(Mc)
 
 ##Spatial Markov Matrix
 #Create a list of spatial weights
-lw<-nb2listw(poly2nb(us,queen=TRUE),style='W')
+lw<-nb2listw(poly2nb(usinc,queen=TRUE),style='W')
 
-Msp<-spMarkov(us@data, lw, stateVars=stateVars,n.states=5,stateNames=stateNames,pool=TRUE,std=TRUE)
+Msp<-spMarkov(usinc@data, lw, stateVars=stateVars,n.states=5,stateNames=stateNames,pool=TRUE,std=TRUE)
 mfpt(Msp)
 
 }

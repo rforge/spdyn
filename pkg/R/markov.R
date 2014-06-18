@@ -42,6 +42,6 @@ if(discretized==TRUE){
 	class(mt)<-'matrix'
 	class(mp)<-'matrix'
   z<-list('t'=mt,'p'=mp)
-  class(z)<-'markov'
+  class(z)<-'Markov'
  return(z)
  }
