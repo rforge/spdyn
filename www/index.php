@@ -60,7 +60,7 @@ echo $contents; } ?>
 
 
 
-<p> The source files, with the most current version of the package, can also be accesed <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>here</strong></a>. </p>
+<p> This package can also be installed locally, by downloading the zip file <a href="http://https://sites.google.com/site/osmarleandroloaizaquintero/home/otra-produccion/spdyn_0.0-1.zip?attredirects=0&d=1/"><strong>here</strong></a>. </p>
 
 </body>
 </html>
