@@ -8,7 +8,7 @@ Classic Markov Probability Matrix
 A function to estimate probability or transition matrices.
 }
 \usage{
-markov(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,pool=FALSE,std=FALSE)
+markov(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,pool=FALSE,std=FALSE,balanced=TRUE)
 }
 
 \arguments{
@@ -39,6 +39,9 @@ If \code{pool=TRUE}, the data is pooled, so that a unique set of time-invariant 
 }
   \item{std}{
 Should the data be standardized? If \code{std=TRUE}, the data is standardized by each period by the mean. 
+}
+  \item{balanced}{
+Is the panel data set balanced? If the panel is unbalanced, then set \code{balanced=FALSE} to handle missing values.
 }
 
 }

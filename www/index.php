@@ -60,7 +60,7 @@ echo $contents; } ?>
 
 
 
-<p> This package can also be installed locally, by downloading the zip file <a href="https://sites.google.com/site/osmarleandroloaizaquintero/home/otra-produccion/spdyn_0.0-1.zip?attredirects=0&d=1/"><strong>here</strong></a>. </p>
+<p> This package can also be installed locally, by downloading the zip file <a href="https://r-forge.r-project.org/R/?group_id=1908"><strong>here</strong></a>. </p>
 
 </body>
 </html>
