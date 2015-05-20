@@ -7,12 +7,15 @@
 Computes mean first passage times among states for a first order Markov process.
 }
 \usage{
-mfpt(M)
+mfpt(M, tol = 1e-100)
 }
 
 \arguments{
   \item{M}{
 An object of class \code{markov} or class \code{spMarkov}. 
+}
+  \item{tol}{
+A tolerance argument, used in determining the steady state distribution. By default set to 1e-100.
 }
 }
 \details{

@@ -9,7 +9,7 @@ A function to estimate the ergodic distribution, or steady state distribution ve
  markov process.
 }
 \usage{
-steadyState(M, tol = 1e-10)
+steadyState(M, tol = 1e-100)
 }
 
 \arguments{
@@ -17,7 +17,7 @@ steadyState(M, tol = 1e-10)
 An object of class \code{markov} or class \code{spMarkov}.
 }
   \item{tol}{
-A tolerance argument, used in determining the steady state distribution. By default set to 1e-10.
+A tolerance argument, used in determining the steady state distribution. By default set to 1e-100.
 }
 }
 \details{

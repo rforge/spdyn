@@ -1,9 +1,9 @@
 .mfpt <-
-function(P){
- stopifnot(rowSums(P)==1,nrow(P)==ncol(P))
+function(P,tol=1e-10){
+ stopifnot( abs(rowSums(P)-1 )<tol,nrow(P)==ncol(P))
   n<-nrow(P)
-    ss = .steadyState(P)
-    A = matrix(rep(ss,n),n,byrow=FALSE)
+    ss = .steadyState(P,tol)
+    A = matrix(rep(ss,ncol(P)),ncol(P),byrow=FALSE)
     A = t(A) 
     I = diag(1,nrow(P))
     Z = solve(I - P + A)
@@ -15,10 +15,11 @@ function(P){
   }
 .steadyState <-
 function(P,tol=1e-10){
- stopifnot(rowSums(P)==1,nrow(P)==ncol(P))
-	S<-eigen(t(P))$vectors
-	D<-diag(eigen(t(P))$values)
-	diag(D)=as.numeric(abs(diag(D)-1)<tol)
-	ss<-S%*%D%*%solve(S)%*%rep(0.2,nrow(P))
-   return(ss)
+ stopifnot( abs( rowSums(P)-1 )<tol, nrow(P)==ncol(P))
+	S <- eigen(t(P))$vectors
+	D <- diag(eigen(t(P))$values)
+	D <- diag( as.numeric(abs(diag(D)-1)<tol) )  
+	ss <- S%*%D%*%solve(S)%*%rep(0.2,nrow(P))
+ stopifnot( identical(Re(ss),Mod(ss)) )  
+   return(Re(ss))
   }
