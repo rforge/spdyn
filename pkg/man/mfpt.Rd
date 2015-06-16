@@ -7,7 +7,7 @@
 Computes mean first passage times among states for a first order Markov process.
 }
 \usage{
-mfpt(M, tol = 1e-100)
+mfpt(M, tol = 1e-10)
 }
 
 \arguments{

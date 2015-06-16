@@ -9,7 +9,7 @@ A function to estimate the ergodic distribution, or steady state distribution ve
  markov process.
 }
 \usage{
-steadyState(M, tol = 1e-100)
+steadyState(M, tol = 1e-10)
 }
 
 \arguments{
