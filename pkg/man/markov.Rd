@@ -1,5 +1,6 @@
 \name{markov}
 \alias{markov}
+\alias{initState}
 
 \title{
 Classic Markov Probability Matrix
@@ -9,6 +10,8 @@ A function to estimate probability or transition matrices.
 }
 \usage{
 markov(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,pool=FALSE,std=FALSE,balanced=TRUE)
+
+initState(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,pool=FALSE,std=FALSE,balanced=TRUE)
 }
 
 \arguments{
@@ -45,6 +48,9 @@ Is the panel data set balanced? If the panel is unbalanced, then set \code{balan
 }
 
 }
+
+\details{The function '\code{markov}' returns a classic transition markov matrix. The function
+'\code{initStates}' retrieves the initial states of the markov process}
 
 \value{
  An object of class '\code{markov}' containing the following items:
