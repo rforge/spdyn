@@ -49,8 +49,6 @@ return(y)
 	}
 
 
-||||||| .r0
-=======
 ##################Bivariate LISA-Conditional Randomization####################
 
 ##A function to implement a permutation test for LISAs. Look at the companion 
@@ -98,4 +96,4 @@ return(y)
 	}
 
 #save(lisa.perm,plot.lisaPerm,file='lisa.perm.q')
->>>>>>> .r19
+

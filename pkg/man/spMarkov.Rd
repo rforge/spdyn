@@ -59,10 +59,11 @@ A spatial Markov matrix is a slight modification of the traditional Markov matri
 
 Note that unlike the \code{\link{markov}} function, currently \code{spMarkov} does not admit already discretized data.
  This is because to determine the spatial lag, a continous variable is required.
+ 
+ The function '\code{spMarkov}' returns a spatial markov matrix. The function
+'\code{spInitStates}' retrieves the initial states of the spatial markov process.
 }
 
-\details{The function '\code{spMarkov}' returns a spatial markov matrix. The function
-'\code{spInitStates}' retrieves the initial states of the spatial markov process.}
 
 \value{
 An object of class '\code{spMarkov}' containing two arrays of dimensions \code{k*k*k}, where \code{k=n.states}.
