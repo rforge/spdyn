@@ -8,6 +8,7 @@ Classic Markov Probability Matrix
 \description{
 A function to estimate probability or transition matrices.
 }
+
 \usage{
 markov(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,pool=FALSE,std=FALSE,balanced=TRUE)
 

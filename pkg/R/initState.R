@@ -27,7 +27,7 @@ initState <- function(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,
            mt<-table(x$cut0)
                 }
             }
- 	   z <- list('initStates'=mt,'brks'=brks,'brks.lag'=brks.ly)
+ 	   z <- list('initStates'=mt,'brks'=brks)
  	   return(z)		
         }
 
