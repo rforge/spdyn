@@ -1,10 +1,11 @@
 Package: spdyn
 Type: Package
 Title: Exploratory Space-Time Data Analysis
-Version: 0.0-1
-Date: 2015-05-30
+Version: 0.0-2
+Date: 2021-01-30
 Author: "Osmar Leandro Loaiza Quintero"
 Maintainer: "Osmar L. Loaiza Q." <olloaizaq@unal.edu.co>
 Description: The spdyn package implements exploratory space-time data analysis methods.
 License: GPL-3
-Depends: R (>= 3.0.1), spdep
+Depends: R (>= 3.1.0)
+Imports: spdep

@@ -56,9 +56,13 @@ steadyState(Mc)
 
 ##Spatial Markov Matrix
 #Create a list of spatial weights
+require(spdep)
 lw<-nb2listw(poly2nb(usinc,queen=TRUE),style='W')
 
-Msp<-spMarkov(usinc@data, lw, stateVars=stateVars,n.states=5,stateNames=stateNames,pool=TRUE,std=TRUE)
+Msp<-spMarkov(usinc@data, lw, stateVars=stateVars,
+n.states=5,stateNames=stateNames,
+pool=TRUE,std=TRUE)
+
 steadyState(Msp)
 
 }

@@ -9,9 +9,12 @@ Spatial Markov Matrices
 A function to calculate Spatial Markov Matrices as proposed by Rey (2001).
 }
 \usage{
-spMarkov(data, listw, stateVars, n.states, stateNames, style = "quantile", breaks, breaks.lag, pool = TRUE, std = TRUE)
+spMarkov(data, listw, stateVars, n.states,
+stateNames, style = "quantile", breaks,
+breaks.lag, pool = TRUE, std = TRUE)
 
-spInitState(data,listw,stateVars,n.states,stateNames=NULL,style='quantile',
+spInitState(data,listw,stateVars,n.states,
+stateNames=NULL,style='quantile',
 breaks,breaks.lag,pool=TRUE,std=TRUE)
 
 }
@@ -89,6 +92,7 @@ stateVars<-names(usinc@data[,7:87])
 stateNames<-c('Poor','Lower','Middle','Upper','Rich')
 
 #Create a list of spatial weights
+require(spdep)
 lw<-nb2listw(poly2nb(usinc,queen=TRUE),style='W')
 
 M<-spMarkov(usinc@data, lw, stateVars=stateVars,n.states=5,stateNames=stateNames,pool=TRUE,std=TRUE)

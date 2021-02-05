@@ -10,9 +10,13 @@ A function to estimate probability or transition matrices.
 }
 
 \usage{
-markov(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,pool=FALSE,std=FALSE,balanced=TRUE)
+markov(data, stateVars, n.states, stateNames=NULL,
+discretized=FALSE, pool=FALSE, std=FALSE,
+balanced=TRUE)
 
-initState(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,pool=FALSE,std=FALSE,balanced=TRUE)
+initState(data, stateVars, n.states, stateNames=NULL,
+discretized=FALSE, pool=FALSE, std=FALSE,
+balanced=TRUE)
 }
 
 \arguments{
@@ -47,7 +51,7 @@ Should the data be standardized? If \code{std=TRUE}, the data is standardized by
   \item{balanced}{
 Is the panel data set balanced? If the panel is unbalanced, then set \code{balanced=FALSE} to handle missing values.
 }
-
+ 
 }
 
 \details{The function '\code{markov}' returns a classic transition markov matrix. The function

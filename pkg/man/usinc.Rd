@@ -35,7 +35,7 @@ Bureau of Economic Analysis, 2010. State Personal Income. http://www.bea.gov/new
 }
 
 \examples{
-data(usinc)
-slotNames(usinc); str(usinc@data) ; plot(usinc)
+#data(usinc,package='spdyn')
+#slotNames(usinc); names(usinc@data) ; plot(usinc)
 }
 \keyword{datasets}

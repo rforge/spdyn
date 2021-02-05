@@ -40,15 +40,14 @@ Returns a numeric matrix
 }
 
 \references{
-  %% ~put references to the literature/web site here ~
+  Anselin, Luc (1992) Local Indicators of Spatial Association.
 }
 
 \author{
   Osmar Leandro Loaiza Quintero
 }
 \note{
-  There is no theoretical nor simulation work assessing the behavior of the Local Moran Staistic when the measure of central tendency is different from the
-  mean.
+  There is no theoretical nor simulation work assessing the behavior of the Local Moran Staistic when the measure of central tendency is different from the mean.
 }
 
 
@@ -68,6 +67,7 @@ function (x)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
+
 \keyword{ Local Indicators of Spatial Association }
 \keyword{ Local Moran Statistic }
 \keyword{ Permutation test}

@@ -10,7 +10,7 @@ Based on the Local Moran Statistic, this function plots a clusters' map
 }
 
 \usage{
-plot.lisaPerm(lmoran,shape,signif=.05,legend.title='',lty=1,lwd=1,fillBorder='black',box.lwd=1)
+\method{plot}{lisaPerm}(lmoran,shape,signif=.05,legend.title='',lty=1,lwd=1,fillBorder='black',box.lwd=1)
 }
 
 \arguments{
