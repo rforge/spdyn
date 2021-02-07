@@ -8,11 +8,10 @@ $domain=ereg_replace('[^\.]*\.(.*)$','\1',$_SERVER['HTTP_HOST']);
 $group_name=ereg_replace('([^\.]*)\..*$','\1',$_SERVER['HTTP_HOST']);
 $themeroot='r-forge.r-project.org/themes/rforge/';
 
-echo '<?xml version="1.0" encoding="UTF-8"?>';
+echo '<?xml version="1.0" encoding="UTF-8";?>';
 ?>
-<!DOCTYPE html
-	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en   ">
 
   <head>
@@ -60,7 +59,8 @@ echo $contents; } ?>
 
 
 
-<p> This package can also be installed locally, by downloading the zip file <a href="https://r-forge.r-project.org/R/?group_id=1908"><strong>here</strong></a>. </p>
+<p> This package can also can be downloaded or installed 
+by clicking <a href="https://r-forge.r-project.org/R/?group_id=1908"><strong>here</strong></a>. </p>
 
 </body>
 </html>
