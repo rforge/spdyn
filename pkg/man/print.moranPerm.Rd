@@ -35,14 +35,19 @@
   \code{\link{lisa.perm}, \link{bilisa.perm}} 
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (x) 
-{
-  }
+data(usinc)
+
+require(spdep)
+
+lw<-nb2listw(
+		poly2nb(usinc,queen=TRUE),style='W'
+	)
+
+mytest <- unimoran.test(usinc$X2009, listw=lw)
+
+print(mytest)
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

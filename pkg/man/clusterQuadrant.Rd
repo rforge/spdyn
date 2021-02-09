@@ -34,14 +34,25 @@ clusterQuadrant(lmoran,signif=.05)
   \code{\link{lisa.perm}, \link{bilisa.perm}, \link{plot.lisaPerm}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (x) 
-{
-  }
+data(usinc, package='spdyn')
+
+require(spdep)
+
+lw<-nb2listw(
+		poly2nb(usinc,queen=TRUE),style='W'
+	)
+	
+mylisa <- lisa.perm(usinc$X2009,listw=lw)
+
+clusterQuadrant(mylisa)
+
+my_bilisa <- bilisa.perm(x=usinc$X1929, y=usinc$X2009, listw=lw)
+
+clusterQuadrant(my_bilisa)
+
+
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

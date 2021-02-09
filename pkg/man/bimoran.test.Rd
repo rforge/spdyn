@@ -16,10 +16,11 @@ bimoran.test(x,y=NULL,listw,CENT=mean,DESV=sd,nsim=999)
 
 \arguments{
   \item{x}{ Either a numeric vector or a numeric matrix with two columns. If \code{x} has
-  more than two columns, only the first two columns will be used. 
+  more than two columns, only the first two columns will be used, and the second column
+  will be spatially lagged. 
 }
-  \item{y}{ A numeric vector. If \code{x} is a numeric matrix, there is no need
-  to supply this argument.
+  \item{y}{ A numeric vector. This is the variable to be spatially lagged. 
+  If \code{x} is a numeric matrix, there is no need to supply this argument.
 }
   \item{listw}{ A list of spatial weights as provided by \code{spdep::nb2listw} }
   \item{CENT}{ Central tendency statistic used to compute the Moran Statistic.
@@ -54,15 +55,19 @@ bimoran.test(x,y=NULL,listw,CENT=mean,DESV=sd,nsim=999)
   \code{\link{bilisa.perm}, \link{bimoran}, \link{unimoran.test}} 
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (x) 
-{
-  }
+data(usinc)
+
+require(spdep)
+
+lw<-nb2listw(
+		poly2nb(usinc,queen=TRUE),style='W'
+	)
+
+bimoran.test(x=usinc$X2007, y=usinc$X2009, listw=lw)
+
 }
+
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ Bivariate moran statistic }% use one of  RShowDoc("KEYWORDS")

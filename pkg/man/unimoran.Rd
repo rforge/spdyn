@@ -44,16 +44,21 @@ the \emph{mean} and \emph{standard deviation}, respectively.
 \seealso{
   \code{\link{bilisa.perm}, \link{unimoran}, \link{bimoran.test}} 
 }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (x) 
-{
-  }
+\examples{
+
+data(usinc)
+
+require(spdep)
+
+lw<-nb2listw(
+		poly2nb(usinc,queen=TRUE),style='W'
+	)
+	
+unimoran(usinc$X2009, listw=lw)
+	
 }
+
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ Univariate moran statistic }% use one of  RShowDoc("KEYWORDS")

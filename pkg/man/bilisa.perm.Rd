@@ -10,18 +10,19 @@
 }
 
 \usage{
-bilisa.perm(x,y,listw,perm=999,FUN=mean,...)
+bilisa.perm(x,y,listw,perm=999,FUN=mean,DESV=sd,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{ A numeric vector}
-  \item{y}{ A numeric vector}
+  \item{y}{ A numeric vector. This is the variable to be spatially lagged}
   \item{listw}{A \code{listw} object as produced by \code{\link{nb2listw}} or
   \code{\link{mat2listw}}. A list of spatial weights}
   \item{perm}{ Number of permutations}
   \item{FUN}{ By defautl \code{FUN=mean}. In general, a function to compute the central tendency of the data. It should return a scalar. See \code{notes}
   }
-   \item{...}{ Further arguments passed to \code{FUN}}
+  \item{DESV}{ Dispersion statistic. Defaults to \code{sd} }
+  \item{...}{ Further arguments passed to \code{FUN}}
 }
 \details{
  This function implements a conditional permutation test to assess the statistical significance of the bivariate LISA. This is a distribution free test that overcomes the limitations of the standard assumption of normality.
@@ -49,14 +50,21 @@ There is no theoretical nor simulation work assessing the behavior of the Local 
   \code{\link{lisa.perm}, \link{plot.lisaPerm}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (x) 
-{
-  }
+data(usinc)
+
+require(spdep)
+
+lw<-nb2listw(
+		poly2nb(usinc,queen=TRUE),style='W'
+	)
+
+my_bilisa <- bilisa.perm(x=usinc$X1929, y=usinc$X2009, listw=lw)
+
+
+plot(my_bilisa, usinc)
+title(sub='State per capita income in 1929 vs. spatially lagged state per capita income in 2009')
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

@@ -45,14 +45,21 @@ Based on the Local Moran Statistic, this function plots a clusters' map
   \code{\link{lisa.perm}, \link{bilisa.perm}} 
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (x) 
-{
-  }
+
+data(usinc, package='spdyn')
+
+require(spdep)
+
+lw<-nb2listw(
+		poly2nb(usinc,queen=TRUE),style='W'
+	)
+	
+mylisa <- lisa.perm(usinc$X2009,listw=lw)
+
+plot(mylisa,usinc)
+
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

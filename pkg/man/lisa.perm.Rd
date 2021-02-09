@@ -11,7 +11,7 @@
 }
 
 \usage{
-lisa.perm(x,listw,perm=999,FUN=mean,...)
+lisa.perm(x,listw,perm=999,FUN=mean,DESV=sd,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -24,7 +24,8 @@ lisa.perm(x,listw,perm=999,FUN=mean,...)
   \item{perm}{ Number of permutations}
   \item{FUN}{ By defautl \code{FUN=mean}. In general, a function to compute the central tendency of the data. It should return a scalar. See \code{notes}
   }
-  \item{...}{ Further arguments passed to \code{FUN}}
+  \item{DESV}{ Dispersion statistic. Defaults to \code{sd} }
+  \item{...}{ Further arguments passed to \code{FUN} }
 }
 
 
@@ -56,14 +57,19 @@ Returns a numeric matrix
  \code{\link{bilisa.perm}, \link{plot.lisaPerm}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (x) 
-{
-  }
+data(usinc, package='spdyn')
+
+require(spdep)
+
+lw<-nb2listw(
+		poly2nb(usinc,queen=TRUE),style='W'
+	)
+	
+mylisa <- lisa.perm(usinc$X2009,listw=lw)
+
+plot(mylisa,usinc)
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
