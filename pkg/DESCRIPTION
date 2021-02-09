@@ -8,4 +8,4 @@ Maintainer: "Osmar L. Loaiza Q." <olloaizaq@unal.edu.co>
 Description: The spdyn package implements exploratory space-time data analysis methods.
 License: GPL-3
 Depends: R (>= 3.1.0)
-Imports: spdep, sp
+Imports: spdep, sp, ggplot2

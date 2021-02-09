@@ -12,7 +12,8 @@ function(P,tol=1e-10){
     Zdg = diag(diag(Z))
     M = (I - Z + E %*% Zdg) %*% D1
    return(M)
-  }
+}
+
 .steadyState <-
 function(P,tol=1e-10){
  stopifnot( abs( rowSums(P)-1 )<tol, nrow(P)==ncol(P))
@@ -22,4 +23,5 @@ function(P,tol=1e-10){
 	ss <- S%*%D%*%solve(S)%*%rep(0.2,nrow(P))
  stopifnot( identical(Re(ss),Mod(ss)) )  
    return(Re(ss))
-  }
+}
+

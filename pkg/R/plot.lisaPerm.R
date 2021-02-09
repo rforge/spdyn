@@ -1,6 +1,6 @@
 ###############################LISA Cluster Map################################
 
-plot.lisaPerm<-function(x,y,signif=.05,legend.title='',lty=1,lwd=1,fillBorder='black',box.lwd=1,...){
+plot.lisaPerm <- function(x,y,signif=.05,legend.title='',lty=1,lwd=1,fillBorder='black',box.lwd=1,...){
   lmoran=x
   shape=y
   
