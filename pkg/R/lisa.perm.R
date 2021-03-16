@@ -37,7 +37,7 @@ lisa.perm<-function(x,listw,perm=999,FUN=mean,DESV=sd,...){
   
   p.sim<-(larger+1)/(perm+1)
   
-  y<-cbind(Ii,p.sim,z)
+  y<-cbind(Ii,p.sim,z/s2)
   colnames(y)<-c('Ii','p-val','Zi')
   class(y)<-'lisaPerm'
   return(y)

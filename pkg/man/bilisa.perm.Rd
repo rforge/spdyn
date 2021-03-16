@@ -31,7 +31,8 @@ bilisa.perm(x,y,listw,perm=999,FUN=mean,DESV=sd,...)
 Returns a numeric matrix
   \item{Ii}{ Values of the Local Moran Statistics}
   \item{p-val}{ P-values}
-  \item{Zi}{ Z scores or standardized scores}
+  \item{Zx}{ Standardized values of \code{x}}
+  \item{Zly}{ Standardized values of the spatial lag of\code{y}}
 }
 
 

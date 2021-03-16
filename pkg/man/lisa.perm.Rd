@@ -37,7 +37,7 @@ lisa.perm(x,listw,perm=999,FUN=mean,DESV=sd,...)
 Returns a numeric matrix
   \item{Ii}{ Values of the Local Moran Statistics}
   \item{p-val}{ P-values}
-  \item{Zi}{ Z scores or standardized scores}
+  \item{Zi}{ Standardized values of \code{x}}
 }
 
 \references{

@@ -34,18 +34,18 @@ bilisa.perm <- function(x,y=NULL,listw,perm=999,FUN=mean,DESV=sd, ...){
     lisas[i,] = zx[i]*(listw$weights[[i]]%*%rz)
   }
   
-  rlisas<-(1/Sxy)*lisas
+  rlisas <- (1/Sxy)*lisas
   
-  above<-rlisas>=Ii
-  larger<-rowSums(above)
-  low.extreme<-(perm-larger)<larger
-  larger[low.extreme]<-perm-larger[low.extreme]
+  above <- rlisas>=Ii
+  larger <- rowSums(above)
+  low.extreme <- (perm-larger)<larger
+  larger[low.extreme] <- perm-larger[low.extreme]
   
   p.sim<-(larger+1)/(perm+1)
   
-  y<-cbind(Ii,p.sim,zx)
-  colnames(y)<-c('Ii','p-val','Zi')
-  class(y)<-'lisaPerm'
+  y <- cbind(Ii, p.sim, zx/DESV(zx), lzy/DESV(lzy))
+  colnames(y) <- c('Ii','p-val','Zx','Zly')
+  class(y) <- 'lisaPerm'
   return(y)
 }
 
